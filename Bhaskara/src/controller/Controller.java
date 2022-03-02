@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.Audio;
 import model.Equation;
 import view.OptionPane;
 import view.Window;
@@ -12,11 +13,13 @@ import view.subpanel.equation.TextFieldEquation;
 
 public class Controller implements ActionListener {
 
+	private Audio errorSound;
 	private Equation equation;
 	private OptionPane optionPane;
 	private Window window;
 	
 	public Controller() {
+		errorSound = new Audio();
 		equation = new Equation();
 		optionPane = new OptionPane();
 		window = new Window();
@@ -46,16 +49,22 @@ public class Controller implements ActionListener {
 		/* BUTTON CALCULATE */
 		
 		if (event.getSource() == window.getButton(Button.CALCULATE)) {
-			double a = Double.parseDouble(window.getValueOf(TextFieldEquation.A));
-			double b = Double.parseDouble(window.getValueOf(TextFieldEquation.B));
-			double c = Double.parseDouble(window.getValueOf(TextFieldEquation.C));
-			
-			equation.setCoefficients(a, b, c);
-			
-			String x1 = String.format("%.4f", equation.calculateX1());
-			String x2 = String.format("%.4f", equation.calculateX2());
-			
-			window.setRoots(x1, x2);
+			try {
+				double a = Double.parseDouble(window.getValueOf(TextFieldEquation.A));
+				double b = Double.parseDouble(window.getValueOf(TextFieldEquation.B));
+				double c = Double.parseDouble(window.getValueOf(TextFieldEquation.C));
+				
+				equation.setCoefficients(a, b, c);
+				
+				String x1 = String.format("%.4f", equation.calculateX1());
+				String x2 = String.format("%.4f", equation.calculateX2());
+				
+				window.setRoots(x1, x2);
+				
+			} catch (NumberFormatException exception) {
+				errorSound.play();
+				optionPane.showMessageNumberFormatException();
+			}
 			return;
 		}
 		
