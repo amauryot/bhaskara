@@ -16,6 +16,14 @@ public class Equation {
 		return (b*b) - (4 * a * c);
 	}
 	
+	public boolean isQuadratic() {
+		return (a != 0);
+	}
+	
+	public boolean hasRealRoots() {
+		return (delta() >= 0);
+	}
+	
 	public double calculateX1() {
 		return (-b + Math.sqrt(delta())) / (2 * a);
 	}

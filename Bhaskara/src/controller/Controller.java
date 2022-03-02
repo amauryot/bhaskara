@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import controller.exception.NoRealRootsException;
+import controller.exception.NotQuadraticException;
 import model.Audio;
 import model.Equation;
 import view.OptionPane;
@@ -56,6 +58,9 @@ public class Controller implements ActionListener {
 				
 				equation.setCoefficients(a, b, c);
 				
+				if (!equation.isQuadratic()) throw new NotQuadraticException();
+				if (!equation.hasRealRoots()) throw new NoRealRootsException();
+				
 				String x1 = String.format("%.4f", equation.calculateX1());
 				String x2 = String.format("%.4f", equation.calculateX2());
 				
@@ -64,6 +69,14 @@ public class Controller implements ActionListener {
 			} catch (NumberFormatException exception) {
 				errorSound.play();
 				optionPane.showMessageNumberFormatException();
+				
+			} catch (NotQuadraticException exception) {
+				errorSound.play();
+				optionPane.showMessageNotQuadraticException();
+				
+			} catch (NoRealRootsException exception) {
+				errorSound.play();
+				optionPane.showMessageNoRealRootsException();
 			}
 			return;
 		}
