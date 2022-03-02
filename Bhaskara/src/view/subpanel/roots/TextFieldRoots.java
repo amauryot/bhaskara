@@ -2,8 +2,8 @@ package view.subpanel.roots;
 
 public enum TextFieldRoots {
 
-	A(0, 140, 30, 65, 25),
-	B(1, 140, 65, 65, 25);
+	X1(0, 140, 30, 65, 25),
+	X2(1, 140, 65, 65, 25);
 	
 	private int index;
 	private int x;

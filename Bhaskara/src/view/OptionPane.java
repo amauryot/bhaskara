@@ -8,7 +8,7 @@ public class OptionPane {
 	private final String MESSAGE_ABOUT = 
 		"Bhaskara"
 		+ "\nCopyright © Mar 2022"
-		+ "\n\nVersão: 0.3.0"
+		+ "\n\nVersão: 1.0.0"
 		+ "\n\nAmaury Tavares"
 		+ "\namauryot@gmail.com\n\n";
 	

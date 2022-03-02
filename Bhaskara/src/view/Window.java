@@ -10,7 +10,9 @@ import view.panel.PanelMain;
 import view.subpanel.buttons.Button;
 import view.subpanel.buttons.SubPanelButtons;
 import view.subpanel.equation.SubPanelEquation;
+import view.subpanel.equation.TextFieldEquation;
 import view.subpanel.roots.SubPanelRoots;
+import view.subpanel.roots.TextFieldRoots;
 
 public class Window {
 
@@ -30,6 +32,15 @@ public class Window {
 	
 	public JButton getButton(Button button) {
 		return subPanelButtons.buttonList().get(button.index());
+	}
+	
+	public String getValueOf(TextFieldEquation textField) {
+		return subPanelEquation.textFieldList().get(textField.index()).getText();
+	}
+	
+	public void setRoots(String x1, String x2) {
+		subPanelRoots.textFieldList().get(TextFieldRoots.X1.index()).setText(x1);
+		subPanelRoots.textFieldList().get(TextFieldRoots.X2.index()).setText(x2);
 	}
 	
 	public void clearAll() {
