@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import view.OptionPane;
 import view.Window;
 import view.frame.MenuItem;
+import view.subpanel.buttons.Button;
 
 public class Controller implements ActionListener {
 
@@ -36,6 +37,20 @@ public class Controller implements ActionListener {
 		
 		if (event.getSource() == window.getMenuItem(MenuItem.EXIT)) {
 			window.close();
+		}
+		
+		/* BUTTON CALCULATE */
+		
+		if (event.getSource() == window.getButton(Button.CALCULATE)) {
+			// TODO
+			return;
+		}
+		
+		/* BUTTON CLEAR */
+		
+		if (event.getSource() == window.getButton(Button.CLEAR)) {
+			window.clearAll();
+			return;
 		}
 	}
 }

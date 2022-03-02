@@ -1,11 +1,13 @@
 package view;
 
+import javax.swing.JButton;
 import javax.swing.JMenuItem;
 
 import controller.Controller;
 import view.frame.Frame;
 import view.frame.MenuItem;
 import view.panel.PanelMain;
+import view.subpanel.buttons.Button;
 import view.subpanel.buttons.SubPanelButtons;
 import view.subpanel.equation.SubPanelEquation;
 import view.subpanel.roots.SubPanelRoots;
@@ -26,8 +28,18 @@ public class Window {
 		return frame.menuItemList().get(menuItem.index());
 	}
 	
+	public JButton getButton(Button button) {
+		return subPanelButtons.buttonList().get(button.index());
+	}
+	
+	public void clearAll() {
+		subPanelEquation.textFieldList().forEach(textField -> textField.setText(""));
+		subPanelRoots.textFieldList().forEach(textField -> textField.setText(""));
+	}
+	
 	public void addController(Controller controller) {
 		frame.menuItemList().forEach(menuItem -> menuItem.addActionListener(controller));
+		subPanelButtons.buttonList().forEach(button -> button.addActionListener(controller));
 	}
 	
 	public void show() {
