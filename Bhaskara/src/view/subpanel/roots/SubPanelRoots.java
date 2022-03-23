@@ -12,12 +12,13 @@ import javax.swing.border.TitledBorder;
 public class SubPanelRoots extends JPanel {
 
 	private static final long serialVersionUID = -6919618817865587814L;
-
-	private final String SUBPANEL_TITLE = "Raízes";
-	private final int SUBPANEL_X = 10;
-	private final int SUBPANEL_Y = 105;
-	private final int SUBPANEL_WIDTH = 290;
+	
+	private final int SUBPANEL_X      = 10;
+	private final int SUBPANEL_Y      = 105;
+	private final int SUBPANEL_WIDTH  = 290;
 	private final int SUBPANEL_HEIGHT = 120;
+	
+	private final String SUBPANEL_TITLE = "Raízes";
 	
 	private ArrayList<JTextField> textFieldList;
 	

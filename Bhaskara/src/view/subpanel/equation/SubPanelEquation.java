@@ -13,11 +13,12 @@ public class SubPanelEquation extends JPanel {
 
 	private static final long serialVersionUID = 4225565493821552288L;
 
-	private final String SUBPANEL_TITLE = "Equação";
-	private final int SUBPANEL_X = 10;
-	private final int SUBPANEL_Y = 10;
-	private final int SUBPANEL_WIDTH = 290;
+	private final int SUBPANEL_X      = 10;
+	private final int SUBPANEL_Y      = 10;
+	private final int SUBPANEL_WIDTH  = 290;
 	private final int SUBPANEL_HEIGHT = 85;
+	
+	private final String SUBPANEL_TITLE = "Equação";
 	
 	private ArrayList<JTextField> textFieldList;
 	

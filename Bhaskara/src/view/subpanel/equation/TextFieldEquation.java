@@ -2,7 +2,7 @@ package view.subpanel.equation;
 
 public enum TextFieldEquation {
 
-	A(0, 10, 30, 40, 25),
+	A(0, 10,  30, 40, 25),
 	B(1, 110, 30, 40, 25),
 	C(2, 200, 30, 40, 25);
 	
